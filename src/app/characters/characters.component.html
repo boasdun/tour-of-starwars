@@ -1,0 +1,11 @@
+<h2>{{character.name | uppercase}} Details</h2>
+<div><span>id: </span>{{character.id}}</div>
+<div>
+	<label for="name">Hero name: </label>
+	<input id="name" [(ngModel)]="character.name" placeholder="name">
+<div><span>mass: </span>{{character.mass}}</div>
+<div><span>hair color: </span>{{character.hair_color}}</div>
+<div><span>skin color: </span>{{character.skin_color}}</div>
+<div><span>eye color: </span>{{character.eye_color}}</div>
+<div><span>birth year: </span>{{character.birth_year | uppercase}}</div>
+<div><span>gender: </span>{{character.gender}}</div>
