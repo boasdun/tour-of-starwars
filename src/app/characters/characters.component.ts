@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Character } from '../character';
+import { CHARACTERS } from '../mock-characters';
 
 @Component({
 	selector: 'app-characters',
@@ -7,15 +8,11 @@ import { Character } from '../character';
 	styleUrls: ['./characters.component.scss']
 })
 export class CharactersComponent implements OnInit {
-	character: Character = {
-		id: 1,
-		name: 'Luke Skywalker',
-		mass: 77,
-		hair_color: "blond",
-		skin_color: "fair",
-		eye_color: "blue",
-		birth_year: "19BBY",
-		gender: "male"
+	characters = CHARACTERS;
+
+	selectedCharacter?: Character;
+	onSelect(character: Character): void {
+		this.selectedCharacter = character;
 	}
 
 	constructor() { }

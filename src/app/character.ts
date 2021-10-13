@@ -1,6 +1,7 @@
 export interface Character {
 	id: number;
 	name: string;
+	height: number;
 	mass: number;
 	hair_color: string;
 	skin_color: string;

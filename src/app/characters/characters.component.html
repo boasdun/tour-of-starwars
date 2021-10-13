@@ -1,11 +1,20 @@
-<h2>{{character.name | uppercase}} Details</h2>
-<div><span>id: </span>{{character.id}}</div>
-<div>
-	<label for="name">Hero name: </label>
-	<input id="name" [(ngModel)]="character.name" placeholder="name">
-<div><span>mass: </span>{{character.mass}}</div>
-<div><span>hair color: </span>{{character.hair_color}}</div>
-<div><span>skin color: </span>{{character.skin_color}}</div>
-<div><span>eye color: </span>{{character.eye_color}}</div>
-<div><span>birth year: </span>{{character.birth_year | uppercase}}</div>
-<div><span>gender: </span>{{character.gender}}</div>
+<h2>Star Wars Characters</h2>
+<ul class="heroes">
+	<li *ngFor="let character of characters"
+		[class.selected]="character === selectedCharacter"
+		(click)="onSelect(character)">
+		<span class="badge">{{character.id}}</span>
+		{{character.name}}
+	</li>
+</ul>
+
+<div *ngIf="selectedCharacter">
+
+	<h2>{{selectedCharacter.name | uppercase}} Details</h2>
+	<div><span>id: </span>{{selectedCharacter.id}}</div>
+	<div>
+		<label for="character-name">Character name: </label>
+		<input id="character-name" [(ngModel)]="selectedCharacter.name" placeholder="name">
+	</div>
+
+</div>
