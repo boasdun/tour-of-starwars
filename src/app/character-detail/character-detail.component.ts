@@ -8,7 +8,7 @@ import { Character } from '../character';
 })
 export class CharacterDetailComponent implements OnInit {
   @Input() character?: Character;
-  showAppearance: boolean = false;
+  showAppearance: boolean = true;
   constructor() { }
 
   ngOnInit(): void {
