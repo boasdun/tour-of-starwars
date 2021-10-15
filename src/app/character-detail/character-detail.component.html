@@ -6,6 +6,7 @@
 		<label for="character-name">Character name: </label>
 		<input id="character-name" [(ngModel)]="character.name" placeholder="name">
 	</div>
+
   <button (click)="showAppearance=!showAppearance">Show/hide details</button>
   <div *ngIf="showAppearance">
     <h5>height: {{character.height}}</h5>
@@ -15,4 +16,5 @@
     <h5>birth_year: {{character.birth_year}}</h5>
     <h5>gender: {{character.gender}}</h5>
   </div>
+
 </div>

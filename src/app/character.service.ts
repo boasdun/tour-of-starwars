@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+
 import { Character } from './character';
 import { CHARACTERS } from './mock-characters';
 
-import { Observable, of } from 'rxjs';
+import { MessageService } from './message.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +12,9 @@ import { Observable, of } from 'rxjs';
 export class CharacterService {
   getCharacters(): Observable<Character[]> {
     const characters = of(CHARACTERS);
+    this.messageService.add('HeroService: fetched heroes')
     return characters;
   }
 
-  constructor() { }
+  constructor(private messageService: MessageService) { }
 }

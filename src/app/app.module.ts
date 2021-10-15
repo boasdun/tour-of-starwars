@@ -7,12 +7,14 @@ import { CharactersComponent } from './characters/characters.component';
 
 import { FormsModule } from '@angular/forms';
 import { CharacterDetailComponent } from './character-detail/character-detail.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CharactersComponent,
-    CharacterDetailComponent
+    CharacterDetailComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
