@@ -12,7 +12,7 @@ import { MessageService } from './message.service';
 export class CharacterService {
   getCharacters(): Observable<Character[]> {
     const characters = of(CHARACTERS);
-    this.messageService.add('HeroService: fetched heroes')
+    this.messageService.add('CharacterService: fetched characters')
     return characters;
   }
 
