@@ -15,6 +15,10 @@ import { MessageService } from './message.service';
 export class CharacterService {
   private charactersUrl = 'api/characters';
 
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+  }
+
   constructor(
     private http: HttpClient,
     private messageService: MessageService ) { }
@@ -23,14 +27,26 @@ export class CharacterService {
   getCharacters(): Observable<Character[]> {
     return this.http.get<Character[]>(this.charactersUrl)
       .pipe(
+        tap(_ => this.log('fetched characters')),
         catchError(this.handleError<Character[]>('getCharacters', []))
       )
   }
 
+  /* Get character by id. Will 404 if character not found */
   getCharacter(id: number): Observable<Character> {
-    const character = CHARACTERS.find( h => h.id === id)!;
-    this.messageService.add(`CharacterService: fetched character id=${id}`);
-    return of (character);
+    const url = `${this.charactersUrl}/${id}`
+    return this.http.get<Character>(url).pipe(
+      tap(_ => this.log(`fetched character id=${id}`)),
+      catchError(this.handleError<Character>(`getCharacter id=${id}`))
+    );
+  }
+
+  /* PUT: update the character on the server */
+  updateCharacter(character: Character): Observable<any> {
+    return this.http.put(this.charactersUrl, character, this.httpOptions).pipe(
+      tap(_ => this.log(`updated character id=${character.id}`)),
+      catchError(this.handleError<any>('updateHero'))
+    );
   }
 
   /**
