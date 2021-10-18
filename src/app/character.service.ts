@@ -16,5 +16,11 @@ export class CharacterService {
     return characters;
   }
 
+  getCharacter(id: number): Observable<Character> {
+    const character = CHARACTERS.find( h => h.id === id)!;
+    this.messageService.add(`CharacterService: fetched character id=${id}`);
+    return of (character);
+  }
+
   constructor(private messageService: MessageService) { }
 }
