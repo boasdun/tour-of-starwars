@@ -13,6 +13,7 @@ import { CharactersComponent } from './characters/characters.component';
 import { CharacterDetailComponent } from './character-detail/character-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CharacterSearchComponent } from './character-search/character-search.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     CharactersComponent,
     CharacterDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    CharacterSearchComponent
   ],
   imports: [
     BrowserModule,

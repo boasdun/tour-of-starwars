@@ -23,7 +23,7 @@ export class CharacterService {
     private http: HttpClient,
     private messageService: MessageService ) { }
 
-  /* Get characters from the server */
+  /* GET characters from the server */
   getCharacters(): Observable<Character[]> {
     return this.http.get<Character[]>(this.charactersUrl)
       .pipe(
@@ -32,12 +32,26 @@ export class CharacterService {
       )
   }
 
-  /* Get character by id. Will 404 if character not found */
+  /* GET character by id. Will 404 if character not found */
   getCharacter(id: number): Observable<Character> {
     const url = `${this.charactersUrl}/${id}`
     return this.http.get<Character>(url).pipe(
       tap(_ => this.log(`fetched character id=${id}`)),
       catchError(this.handleError<Character>(`getCharacter id=${id}`))
+    );
+  }
+
+  /* GET characters whose name contains search term */
+  searchCharacters(term: string): Observable<Character[]> {
+    if (!term.trim()) {
+      // if not search term, return empty character array/
+      return of([]);
+    }
+    return this.http.get<Character[]>(`${this.charactersUrl}/?name=${term}`).pipe(
+      tap(x => x.length ?
+        this.log(`found characters matching "${term}"`):
+        this.log(`no heroes matching "${term}"`)),
+      catchError(this.handleError<Character[]>('searchHeroes', []))
     );
   }
 
