@@ -1,92 +1,66 @@
-* {
-	font-family: Arial, Helvetica, sans-serif;
-}
-/* HeroesComponent's private CSS styles */
-.heroes {
-  margin: 0 0 2em 0;
-  list-style-type: none;
-  padding: 0;
-  width: 15em;
+@import '../../scss/colors.scss';
+
+.add-character {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 }
 
 input {
-  display: block;
-  width: 100%;
-  padding: .5rem;
-  margin: 1rem 0;
-  box-sizing: border-box;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	font-size: 2rem;
+	margin: 1em;
 }
 
-.heroes li {
-  position: relative;
-  cursor: pointer;
+label {
+	font-size: 2rem;
 }
 
-.heroes li:hover {
-  left: .1em;
+h2 {
+	text-align: center;
 }
 
-.heroes a {
-  color: #333;
-  text-decoration: none;
-  background-color: #EEE;
-  margin: .5em;
-  padding: .3em 0;
-  height: 1.6em;
-  border-radius: 4px;
-  display: block;
-  width: 100%;
-}
-
-.heroes a:hover {
-  color: #2c3a41;
-  background-color: #e6e6e6;
-}
-
-.heroes a:active {
-  background-color: #525252;
-  color: #fafafa;
-}
-
-.heroes .badge {
-  display: inline-block;
-  font-size: small;
-  color: white;
-  padding: 0.8em 0.7em 0 0.7em;
-  background-color:#405061;
-  line-height: 1em;
-  position: relative;
-  left: -1px;
-  top: -4px;
-  height: 1.8em;
-  min-width: 16px;
-  text-align: right;
-  margin-right: .8em;
-  border-radius: 4px 0 0 4px;
-}
-
-.add-button {
- padding: .5rem 1.5rem;
- font-size: 1rem;
- margin-bottom: 2rem;
-}
-
-.add-button:hover {
-  color: white;
-  background-color: #42545C;
+a {
+	text-decoration: none;
 }
 
 button.delete {
-  position: absolute;
-  left: 210px;
-  top: 5px;
-  background-color: white;
-  color:  #525252;
-  font-size: 1.1rem;
-  padding: 1px 10px 3px 10px;
+	width: 1em;
+	height: 1em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 0;
+	margin-left: 1em;
 }
-
-button.delete:hover {
-  background-color: #525252;
-  color: white;
+.character-list {
+	display: flex;
+	justify-content: center;
+	min-height: 500px;
+	border-radius: 1em;
+	padding: 2em;
+	width: 100%;
+	background: $pitch-black;
+}
+ul {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	li {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		margin: 0.5em 0;
+		h4 {
+			font-weight: 100;
+			color: $green;
+			span {
+				text-decoration: underline;
+			}
+		}
+	}
 }

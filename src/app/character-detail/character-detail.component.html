@@ -1,23 +1,24 @@
-<div *ngIf="character">
+<div class="character-detail" *ngIf="character">
 
 	<h2>{{character.name | uppercase}} Details</h2>
-	<div><span>id: </span>{{character.id}}</div>
-	<div>
-		<label for="character-name">Character name: </label>
+	<h4><span>id: </span>{{character.id}}</h4>
+	<div class="change-name">
+		<label for="character-name">Character name</label>
 		<input id="character-name" [(ngModel)]="character.name" placeholder="name">
+		<button (click)="save()">save</button>
 	</div>
 
-  <button (click)="showAppearance=!showAppearance">Show/hide details</button>
-  <div *ngIf="showAppearance">
-    <h5>height: {{character.height}}</h5>
-    <h5>mass: {{character.mass}}</h5>
-    <h5>hair color: {{character.hair_color}}</h5>
-    <h5>eye_color: {{character.eye_color}}</h5>
-    <h5>birth_year: {{character.birth_year}}</h5>
-    <h5>gender: {{character.gender}}</h5>
-  </div>
-
-  <button (click)="goBack()">go back</button>
-  <button (click)="save()">save</button>
+	<div class="button-group">
+		<button (click)="goBack()">go back</button>
+		<button (click)="showAppearance=!showAppearance">Show/hide details</button>
+		<div class="character-details" *ngIf="showAppearance">
+			<p>height: {{character.height}}</p>
+			<p>mass: {{character.mass}}</p>
+			<p>hair color: {{character.hair_color}}</p>
+			<p>eye_color: {{character.eye_color}}</p>
+			<p>birth_year: {{character.birth_year}}</p>
+			<p>gender: {{character.gender}}</p>
+		</div>
+	</div>
 
 </div>

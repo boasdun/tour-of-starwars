@@ -1,22 +1,23 @@
 <h2>Star Wars Characters</h2>
 
-<div>
+<div class="add-character">
 	<label for="new-character">Character name:</label>
 	<input id="new-character" #characterName />
 
 	<!-- (click) passes input value to add() and then clears the input -->
-	<button class="add-button"
-	(click)="add(characterName.value); characterName.value=''">
+	<button (click)="add(characterName.value); characterName.value=''">
 	Add character
 </button>
 </div>
 
-<ul class="heroes">
-	<li	*ngFor="let character of characters">
-		<a routerLink="/detail/{{character.id}}">
-			<span class="badge">{{character.id}}</span> {{character.name}}
-		</a>
-		<button class="delete" title="delete character"
-		(click)="delete(character)">×</button>
-	</li>
-</ul>
+<div class="character-list">
+	<ul>
+		<li	*ngFor="let character of characters">
+			<a routerLink="/detail/{{character.id}}">
+				<h4>{{character.id}} <span>{{character.name}}</span></h4>
+			</a>
+			<button class="delete" title="delete character"
+			(click)="delete(character)">×</button>
+		</li>
+	</ul>
+</div>
