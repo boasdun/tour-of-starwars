@@ -1,0 +1,18 @@
+@import '../../scss/colors.scss';
+
+.opening-crawl {
+	display: flex;
+	flex-direction: column;
+	padding: 1em;
+}
+
+h1 {
+	text-transform: lowercase;
+	color: $yellow;
+	text-align: center;
+}
+
+h3 {
+	color: $yellow;
+	line-height: 1.5;
+}

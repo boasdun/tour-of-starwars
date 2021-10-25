@@ -2,10 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 
 import { Character } from './character';
-import { CHARACTERS } from './mock-characters';
 
 import { MessageService } from './message.service';
 
@@ -106,5 +105,3 @@ export class CharacterService {
     this.messageService.add(`CharacterService: ${message}`);
   }
 }
-
-// this.messageService.add('CharacterService: fetched characters')
